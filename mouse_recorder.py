@@ -13,7 +13,7 @@ mouse = Controller()
 positions = []
 
 
-def record(duration):
+def record(duration: float) -> None:
     """
     Records user mouse input
     """
@@ -38,7 +38,7 @@ def record(duration):
             time_last = time.time()
         
 
-def replay():
+def replay() -> None:
     """
     Replays user recorded mouse input
     """
@@ -52,10 +52,11 @@ def replay():
         time.sleep(tup[1])
 
 
-def main():
+def main() -> None:
     
     try:
-        duration = float(input("Input the duration of the recording (in seconds): ").replace(',', '.'))
+        input_message = "Input the duration of the recording (in seconds): "
+        duration = float(input(input_message).replace(',', '.'))
     except ValueError:
         print("Please input a valid time in seconds.")
         sys.exit(1)
